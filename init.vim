@@ -11,9 +11,9 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-"Color Theme - Iceberg
+"Color Theme - Tokyo Night
 
-Plug 'arcticicestudio/nord-vim'
+Plug 'ghifarit53/tokyonight-vim'
 
 "Git Integration
 Plug 'tpope/vim-fugitive'
@@ -24,17 +24,19 @@ Plug 'scrooloose/nerdcommenter'
 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'rust-lang/rust.vim'
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
-
-colorscheme nord
 
 if (has("termguicolors"))
  set termguicolors
 endif
 
+syntax enable
+colorscheme tokyonight
+
+
 map <silent> <C-n> :NERDTreeFocus<CR>
 let g:airline#extensions#tabline#enabled = 1
+let g:gruvbox_contrast_dark = 'hard'
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
