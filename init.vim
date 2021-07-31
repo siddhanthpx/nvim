@@ -1,19 +1,25 @@
 set nu
+set number relativenumber
 set nocompatible
 set nowrap
+set scrolloff=7
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
+set noswapfile
 filetype off
 
 call plug#begin('~/.config/nvim/plugged')
 
+"Lightline
+
 Plug 'itchyny/lightline.vim'
 
-"Color Theme - Kuroi
+"Color Theme - One Dark
 
-Plug 'aonemd/kuroi.vim'
+"Plug 'joshdick/onedark.vim'
+Plug 'tomasr/molokai'
 
 "Git Integration
 
@@ -26,7 +32,8 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 "NerdTREE
 Plug 'preservim/nerdtree'
-Plug 'scrooloose/nerdcommenter'
+Plug 'preservim/nerdcommenter'
+Plug 'jiangmiao/auto-pairs'
 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -39,10 +46,16 @@ if (has("termguicolors"))
 endif
 
 syntax enable
-colorscheme kuroi
-highlight Normal guibg=None
+set background=light
+colorscheme molokai
+"highlight Normal guibg=None
+
 
 map <silent> <C-n> :NERDTreeFocus<CR>
+"nmap <C-_> <Plug>NERDCommenterToggle
+"nmap <C-_> <Plug>NERDCommenterToggle<CR>gv
+let g:NERDTreeWinPos = "right"
+let g:NERDCreateDefaultMappings = 1
 let g:go_highlight_structs = 1 
 let g:go_highlight_methods = 1
 let g:go_highlight_functions = 1
@@ -52,7 +65,12 @@ let g:go_highlight_fields = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_build_constraints = 1
+let g:onedark_terminal_italics = 1
 
+
+let g:lightline = {
+\'colorscheme': 'onedark',
+\}
 
 " -------------------------------------------------------------------------------------------------
 " coc.nvim default settings
